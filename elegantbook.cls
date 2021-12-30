@@ -394,6 +394,9 @@
   \newcommand\bioinfo[2]{\gdef\@bioinfo{{\citshape #1}：#2}}
   \newcommand{\updatename}{更新：}
   \newcommand{\historyname}{版本更新历史}
+  % Add 
+  \newcommand{\inputdataname}{输入数据}
+  \newcommand{\outputdataname}{输出数据}
   }{\relax}
 \ifdefstring{\ELEGANT@lang}{en}{
   \setlength\parindent{2em}
@@ -807,7 +810,17 @@
   \DeclareTColorBox[auto counter,number within=chapter]{proposition}{ o t\label g }{
     common,propstyle,
     IfValueTF={#1}{title={\propositionname~\thetcbcounter\ (#1)}}{title=\propositionname~\thetcbcounter},
-    IfBooleanTF={#2}{label=#3}{}}}{\relax}
+    IfBooleanTF={#2}{label=#3}{}}
+  % ADD
+  \DeclareTColorBox[auto counter,number within=chapter]{inputdata}{ o t\label g }{
+      common,defstyle,
+      IfValueTF={#1}{title={\inputdataname}}{title=\inputdataname},
+      IfBooleanTF={#2}{label=#3}{}}
+  \DeclareTColorBox[auto counter,number within=chapter]{outputdata}{ o t\label g }{
+      common,defstyle,
+      IfValueTF={#1}{title={\inputdataname}}{title=\inputdataname},
+      IfBooleanTF={#2}{label=#3}{}}
+  }{\relax}
 
 
 \ifdefstring{\ELEGANT@mode}{simple}{
