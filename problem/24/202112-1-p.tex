@@ -1,0 +1,105 @@
+\subsection*{题目背景}
+
+西西艾弗岛的购物中心里店铺林立，商品琳琅满目。为了帮助游客根据自己的预算快速选择心仪的商品，IT 部门决定研发一套商品检索系统，支持对任意给定的预算 $x$，查询在该预算范围内（$\le x$）价格最高的商品。如果没有商品符合该预算要求，便向游客推荐可以免费领取的西西艾弗岛定制纪念品。
+
+假设购物中心里有 $n$ 件商品，价格从低到高依次为 $A_1,A_2,\cdots, A_n$，
+，则根据预算 $x$ 检索商品的过程可以抽象为如下序列查询问题。
+
+\subsection*{题目描述}
+
+$A=[A_0,A_1,A_2,\cdots,A_n]$ 是一个由 $n+1$ 个 $[0,N)$ 范围内整数组成的序列，满足 $0=A_0<A_1<A_2<\cdots<A_n<N$
+。（这个定义中蕴含了 $n$ 一定小于 $N$。）
+
+基于序列 $A$，对于 $[0,N)$ 范围内任意的整数 $x$，查询 $f(x)$ 定义为：序列 $A$ 中{\heiti 小于等于} $x$ 的整数里最大的数的{\heiti 下标}。具体来说有以下两种情况：
+
+\begin{enumerate}
+  \item 存在下标 $0\le i<n$ 满足 $A_i\le x < A_{i+1}$，此时序列 $A$ 中从 $A_0$ 到 $A_i$ 均小于等于 $x$，其中最大的数为 $A_i$，其下标为 $i$，故 $f(x)=i$。
+  \item $A_n\le x$，此时序列 $A$ 中左右的数都小于等于 $x$，其中最大的数是 $A_n$，故 $f(x)=n$。
+\end{enumerate}
+
+令 $sum(A)$ 表示 $f(0)$ 到 $f(N-1)$ 的总和，即：
+
+\begin{equation*}
+sum(A) = \sum_{i=0}^{N-1} {f(i)=f(0)+f(1)+f(2)+\cdots +f(N-1)}
+\end{equation*}
+
+对于给定的序列 $A$，试计算 $sum(A)$。
+
+\subsection*{输入格式}
+
+从标准输入读入数据。
+
+输入的第一行包含空格分隔的两个正整数 $n$ 和 $N$。
+
+输入的第二行包含 $n$ 个用空格分隔的整数 $A_1,A_2,\cdots,A_n$
+。
+
+注意 $A_0$
+ 固定为 $0$，因此输入数据中不包括 $A_0$ 
+。
+
+\subsection*{输出格式}
+
+输出到标准输出。
+
+仅输出一个整数，表示 $sum(A)$ 的值。
+
+\subsection*{样例}
+
+输入格式\#1：
+
+\begin{lstlisting}
+3 10
+2 5 8
+\end{lstlisting}
+
+输出格式\#1：
+
+\begin{lstlisting}
+15
+\end{lstlisting}
+
+解释\#1：
+
+$A=[0, 2, 5, 8]$
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ccccccccccc}
+    \toprule
+    $i$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
+    $f(i)$ & $0$ & $0$ & $1$ & $1$ & $1$ & $2$ & $2$ & $2$ & $3$ & $3$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+如上表所示，$sum(A)=f(0)+f(1)+\cdots + f(9)=15$。
+
+考虑到 $f(0)=f(1)$、$f(2)=f(3)=f(4)$、$f(5)=f(6)=f(7)$ 以及 $f(8)=f(9)$，亦可通过如下算式计算 $sum(A)$；
+
+\begin{equation*}
+  sum(A)=f(0)\times 2+f(2)\times 3+f(5)\times 3 + f(8)\times 2
+\end{equation*}
+
+输入格式\#2：
+
+\begin{lstlisting}
+9 10
+1 2 3 4 5 6 7 8 9
+\end{lstlisting}
+
+输出格式\#2：
+
+\begin{lstlisting}
+45
+\end{lstlisting}
+
+\subsection*{子任务}
+
+$50$ \% 的测试数据满足 $1\le n\le 200$ 且 $n\le N\le 1000$；
+
+全部的测试数据满足 $1\le n\le 200$ 且 $n\le N\le 10^7$。
+
+\subsection*{提示}
+
+若存在区间 $[i,j)$ 满足 $f(i)=f(i+1)=\cdots=f(j-1)$，使用乘法运算 $f(i)\times (j-i)$ 代替将 $f(i)$ 到 $f(j-1)$ 逐个相加，或可大幅提高算法效率。

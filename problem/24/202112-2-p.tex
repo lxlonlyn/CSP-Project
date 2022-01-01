@@ -1,0 +1,141 @@
+\subsection*{题目背景}
+
+上一题“序列查询”中说道：
+$A=[A_0,A_1,A_2,\cdots,A_n]$ 是一个由 $n+1$ 个 $[0,N)$ 范围内整数组成的序列，满足 $0 = A_0 < A_1 < A_2 < \cdots < A_n < N$
+。基于序列 $A$，对于 $[0,N)$ 范围内任意的整数 $x$，查询 $f(x)$ 定义为：序列 $A$ 中{\heiti{小于等于}} $x$ 的整数里最大的数的下标。
+
+对于给定的序列 $A$ 和整数 $x$，查询 $f(x)$ 是一个很经典的问题，可以使用二分搜索在 $\mathbf{O}(\log n)$ 的时间复杂度内轻松解决。但在 IT 部门讨论如何实现这一功能时，小 P 同学提出了些新的想法。
+
+\subsection*{题目描述}
+
+小 P 同学认为，如果事先知道了序列 $A$ 中整数的分布情况，就能直接估计出其中小于等于 $x$ 的最大整数的大致位置。接着从这一估计位置开始线性查找，锁定 $f(x)$。如果估计得足够准确，线性查找的时间开销可能比二分查找算法更小。
+
+比如说，如果 $A_1,A_2,\cdots,A_n$
+ 均匀分布在 $(0,N)$ 的区间，那么就可以估算出：
+ 
+\begin{equation*}
+    f(x)\approx \frac{(n+1)\cdot x}{N}
+\end{equation*}
+
+为了方便计算，小 P 首先定义了比例系数 $r=\lfloor \frac{N}{n+1} \rfloor$
+ 
+，其中 $\lfloor \rfloor$ 表示下取整，即 $r$ 等于 $N$ 除以 $n+1$ 的商。进一步地，小 P 用 $g(x)=\lfloor \frac{x}{r}\rfloor$
+ 
+ 表示自己估算出的 $f(x)$ 的大小，这里同样使用了下取整来保证 $g(x)$ 是一个整数。
+
+显然，对于任意的询问 $x\in [0,N)$，$g(x)$ 和 $f(x)$ 越接近则说明小 P 的估计越准确，后续进行线性查找的时间开销也越小。因此，小 P 用两者差的绝对值 $|g(x)-f(x)|$ 来表示处理询问 $x$ 时的误差。
+
+为了整体评估小 P 同学提出的方法在序列 $A$ 上的表现，试计算：
+ 
+\begin{equation*}
+    error(A)=\sum\limits_{i=0}^{N-1}{|g(i)-f(i)|}=|g(0)-f(0)| + \cdots + |g(N-1)-f(N-1)|
+\end{equation*}
+
+\subsection*{输入格式}
+
+从标准输入读入数据。
+
+输入的第一行包含空格分隔的两个正整数 $n$ 和 $N$。
+
+输入的第二行包含 $n$ 个用空格分隔的整数 $A_1,A_2,\cdots,A_n$
+。
+
+注意 $A_0$
+ 固定为 $0$，因此输入数据中不包括 $A_0$
+。
+
+\subsection*{输出格式}
+
+输出到标准输出。
+
+仅输出一个整数，表示 $error(A)$ 的值。
+
+\subsection*{样例}
+
+输入格式\#1：
+
+\begin{lstlisting}
+3 10
+2 5 8
+\end{lstlisting}
+
+输出格式\#1：
+
+\begin{lstlisting}
+5
+\end{lstlisting}
+
+解释\#1：
+
+$A=[0, 2, 5, 8]$
+
+$r = \lfloor \frac{N}{n+1}\rfloor=\lfloor \frac{10}{3+1}\rfloor=2$
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ccccccccccc}
+    \toprule
+    % \midrule
+    $i$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
+    $f(i)$ & $0$ & $0$ & $1$ & $1$ & $1$ & $2$ & $2$ & $2$ & $3$ & $3$ \\
+    $g(i)$ & $0$ & $0$ & $1$ & $1$ & $2$ & $2$ & $3$ & $3$ & $4$ & $4$ \\
+    $|g(i)-f(i)|$ & $0$ & $0$ & $0$ & $0$ & $1$ & $0$ & $1$ & $1$ & $1$ & $1$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+输入格式\#2：
+
+\begin{lstlisting}
+9 10
+1 2 3 4 5 6 7 8 9
+\end{lstlisting}
+
+输出格式\#2：
+
+\begin{lstlisting}
+0
+\end{lstlisting}
+
+输入格式\#3：
+
+\begin{lstlisting}
+2 10
+1 3
+\end{lstlisting}
+
+输出格式\#3：
+
+\begin{lstlisting}
+6
+\end{lstlisting}
+
+解释\#3：
+
+$A=[0, 1, 3]$
+
+$r = \lfloor \frac{N}{n+1}\rfloor=\lfloor \frac{10}{2+1}\rfloor=3$
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{ccccccccccc}
+    \toprule
+    % \midrule
+    $i$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
+    $f(i)$ & $0$ & $1$ & $1$ & $2$ & $2$ & $2$ & $2$ & $2$ & $2$ & $2$ \\
+    $g(i)$ & $0$ & $0$ & $0$ & $1$ & $1$ & $1$ & $2$ & $2$ & $2$ & $3$ \\
+    $|g(i)-f(i)|$ & $0$ & $1$ & $1$ & $1$ & $1$ & $1$ & $0$ & $0$ & $0$ & $1$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection*{子任务}
+
+$70$ \% 的测试数据满足 $1\le n\le 200$ 且 $n\le N\le 1000$；
+
+全部的测试数据满足 $1\le n\le 10^5$ 且 $n\le N\le 10^9$。
+
+\subsection*{提示}
+
+需要注意，输入数据 $[A_1\cdots A_n]$
+ 并不一定均匀分布在 $(0,N)$ 区间，因此总误差 $error(A)$ 可能很大。
