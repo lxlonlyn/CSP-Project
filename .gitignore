@@ -3,6 +3,7 @@
 **/gitpush.py
 **/gitpull.py
 **/__latexindent_temp.tex
+**/__latexindent_temp.pdf
 **/.clang-format
 **/*.aux
 **/*.bcf
