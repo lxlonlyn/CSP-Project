@@ -1,14 +1,88 @@
-\subsection*{题目背景}
-
 \subsection*{题目描述}
+
+$A_1, A_2, \cdots, A_n$ 是一个由 $n$ 个{\heiti{自然数}}（即非负整数）组成的数组。
+在此基础上，我们用数组 $B_1 \cdots B_n$ 表示 $A$ 的前缀最大值。
+
+\begin{equation*}
+    B_i = \max \left\{ A_1, A_2,  \cdots, A_i \right\}
+\end{equation*}
+
+如上所示，$B_i$ 定义为数组 $A$ 中前 $i$ 个数的最大值。
+根据该定义易知 $A_1 = B_1$，且随着 $i$ 的增大，$B_i$ 单调不降。
+此外，我们用 $sum = A_1 + A_2 + \cdots + A_n$ 表示数组 $A$ 中 $n$ 个数的总和。
+
+现已知数组 $B$，我们想要根据 $B$ 的值来反推数组 $A$。
+显然，对于给定的 $B$，$A$ 的取值可能并不唯一。
+试计算，在数组 $A$ 所有可能的取值情况中，$sum$ 的最大值和最小值分别是多少？
 
 \subsection*{输入格式}
 
+从标准输入读入数据。
+
+输入的第一行包含一个正整数 $n$。
+
+输入的第二行包含 $n$ 个用空格分隔的自然数 $B_1, B_2, \cdots, B_n$。
+
 \subsection*{输出格式}
+
+输出到标准输出。
+
+输出共两行。
+
+第一行输出一个整数，表示 $sum$ 的最大值。
+
+第二行输出一个整数，表示 $sum$ 的最小值。
 
 \subsection*{样例}
 
+输入\#1：
+
+\begin{lstlisting}
+6
+0 0 5 5 10 10
+\end{lstlisting}
+
+输出\#1：
+
+\begin{lstlisting}
+30
+15
+\end{lstlisting}
+
+解释\#1：
+
+数组 $A$ 的可能取值包括但不限于以下三种情况。
+
+\begin{itemize}
+    \item 情况一：$A = [0, 0, 5, 5, 10, 10]$
+    \item 情况二：$A = [0, 0, 5, 3, 10, 4]$
+    \item 情况三：$A = [0, 0, 5, 0, 10, 0]$
+\end{itemize}
+
+其中第一种情况 $sum = 30$ 为最大值，第三种情况 $sum = 15$ 为最小值。
+
+输入\#2：
+
+\begin{lstlisting}
+7
+10 20 30 40 50 60 75
+\end{lstlisting}
+
+输出\#2：
+
+\begin{lstlisting}
+285
+285
+\end{lstlisting}
+
+解释\#2：
+
+$A = [10, 20, 30, 40, 50, 60, 75]$ 是唯一可能的取值，所以 $sum$ 的最大、最小值均为 $285$。
+
 \subsection*{子任务}
 
-\subsection*{提示}
+$50\%$ 的测试数据满足数组 $B$ 单调递增，即 $0 < B_1 < B_2 < \cdots < B_n < 10^{5}$；
+
+全部的测试数据满足 $n \le 100$ 且数组 $B$ 单调不降，即 $0 \le B_1 \le B_2 \le \cdots \le B_n \le 10^{5}$。
+
 

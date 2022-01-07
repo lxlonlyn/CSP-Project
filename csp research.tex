@@ -15,12 +15,18 @@
 
 \cover{cover.jpg}
 
+\newif\ifonlyanalyze % 是否只有分析，没有题面
+% \onlyanalyzefalse % 题面+分析
+\onlyanalyzetrue % 只有分析，没有题面
+
 % 本文档命令
 \usepackage{array}
 \newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
 
 \definecolor{customcolor}{RGB}{32,178,170}
 \colorlet{coverlinecolor}{customcolor}
+
+
 
 \begin{document}
 
@@ -368,19 +374,68 @@ December 30, 2021
 
 % \include{problem/22/202104-5.tex}
 
-% \chapter{第23次认证（2021年09月）}
+% 第23次认证
 
-% \section{题目及设计知识点}
+\chapter{第23次认证（2021年09月）}
 
-% \include{problem/23/202109-1.tex}
+\section{题目及设计知识点}
 
-% \include{problem/23/202109-2.tex}
+\begin{table}[htbp]
+  \centering
+  \begin{tabular}{ccc}
+    \toprule
+    题目编号 & 题目名称 & 知识点\\
+    \midrule
+    1 & 数组推导 & 模拟 \\
+    2 & 非零段划分 & 模拟，数学 \\
+    3 & 脉冲神经网络 & 模拟 \\
+    4 & 收集卡牌 & 状压dp \\
+    5 & 箱根山岳险天下 & 树链剖分，动态树 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-% \include{problem/23/202109-3.tex}
+\newpage
+\section{202109-1 数组推导}
+\ifonlyanalyze
+\else
+\input{problem/23/202109-1-p.tex}
+\fi
+\input{problem/23/202109-1.tex}
 
-% \include{problem/23/202109-4.tex}
+\newpage
+\section{202109-2 非零段划分}
+\ifonlyanalyze
+\else
+\input{problem/23/202109-2-p.tex}
+\fi
+\input{problem/23/202109-2.tex}
 
-% \include{problem/23/202109-5.tex}
+\newpage
+\section{202109-3 脉冲神经网络}
+\ifonlyanalyze
+\else
+\input{problem/23/202109-3-p.tex}
+\fi
+\input{problem/23/202109-3.tex}
+
+\newpage
+\section{202109-4 收集卡牌}
+\ifonlyanalyze
+\else
+\input{problem/23/202109-4-p.tex}
+\fi
+\input{problem/23/202109-4.tex}
+
+\newpage
+\section{202109-5 箱根山岳险天下}
+\ifonlyanalyze
+\else
+\input{problem/23/202109-5-p.tex}
+\fi
+\input{problem/23/202109-5.tex}
+
+% 第24次认证 
 
 \chapter{第24次认证（2021年12月）}
 
@@ -401,14 +456,44 @@ December 30, 2021
   \end{tabular}
 \end{table}
 
-\include{problem/24/202112-1.tex}
+\newpage
+\section{202112-1 序列查询}
+\ifonlyanalyze
+\else
+\input{problem/24/202112-1-p.tex}
+\fi
+\input{problem/24/202112-1.tex}
 
-\include{problem/24/202112-2.tex}
+\newpage
+\section{202112-2 序列查询新解}
+\ifonlyanalyze
+\else
+\input{problem/24/202112-2-p.tex}
+\fi
+\input{problem/24/202112-2.tex}
 
-\include{problem/24/202112-3.tex}
+\newpage
+\section{202112-3 序列查询新解}
+\ifonlyanalyze
+\else
+\input{problem/24/202112-3-p.tex}
+\fi
+\input{problem/24/202112-3.tex}
 
-\include{problem/24/202112-4.tex}
+\newpage
+\section{202112-4 磁盘文件操作}
+\ifonlyanalyze
+\else
+\input{problem/24/202112-4-p.tex}
+\fi
+\input{problem/24/202112-4.tex}
 
-\include{problem/24/202112-5.tex}
+\newpage
+\section{202112-5 极差路径}
+\ifonlyanalyze
+\else
+\input{problem/24/202112-5-p.tex}
+\fi
+\input{problem/24/202112-5.tex}
 
 \end{document}
