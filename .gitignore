@@ -10,3 +10,4 @@
 **/*.xml
 **/*.gz
 **/.vscode
+**/gethtml
