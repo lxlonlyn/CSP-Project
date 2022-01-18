@@ -1139,3 +1139,35 @@
 \thispagestyle{empty}%
 \newpage%
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+
+
+
+% examplebox 样例输入输出
+% Create by lonlyn 2022.1.15
+\tcbuselibrary{raster}
+\RequirePackage{xparse}
+\newcounter{examplecounter}[subsection]
+\setcounter{examplecounter}{0}
+\NewDocumentCommand{\examplebox}{s m m}{
+    \stepcounter{examplecounter}
+    \subsection*{样例\#\theexamplecounter}
+    \begin{tcbraster}[raster columns=2, enhanced, raster valign=top]
+        \begin{tcolorbox}[colframe=white,colback=white]
+            输入\#\theexamplecounter：
+        \end{tcolorbox}
+        \begin{tcolorbox}[colframe=white,colback=white]
+            输出\#\theexamplecounter：
+        \end{tcolorbox}
+        \begin{tcolorbox}[colframe=black,colback=white,drop shadow]
+            #2
+        \end{tcolorbox}
+        \begin{tcolorbox}[colframe=black,colback=white,drop shadow]
+            #3
+        \end{tcolorbox}
+    \end{tcbraster}
+    \IfBooleanT{#1}{
+        \begin{tcolorbox}[colframe=white,colback=white]
+            解释\#\theexamplecounter：
+        \end{tcolorbox}
+    }
+}

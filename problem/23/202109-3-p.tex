@@ -95,26 +95,7 @@ int myrand() {
 
 只要按照题目要求正确实现就能通过，不会因为计算精度的问题而得到错误答案。
 
-\subsection*{样例}
-
-输入\#1：
-
-\begin{lstlisting}
-1 1 1 10
-0.1
-1 -70.0 -14.0 0.02 0.2 -65.0 2.0
-30000
-1 0 30.0 2
-\end{lstlisting}
-
-输出\#1：
-
-\begin{lstlisting}
--35.608 -35.608
-2 2
-\end{lstlisting}
-
-解释\#1：
+\examplebox*{\lstinputlisting[frame=none]{data/23/3-1.in}}{\lstinputlisting[frame=none]{data/23/3-1.out}}
 
 该样例有 1 个神经元、1 个突触和 1 个脉冲源，时间间隔 $\Delta{t}=0.1$。唯一的脉冲源通过脉冲强度为 30.0、传播延迟为 2 的突触传播到唯一的神经元。
 
@@ -150,27 +131,7 @@ int myrand() {
 
 该神经元在时刻 5 和时刻 9 发放，最终得到的 $v=-35.608$ 。
 
-输入\#2：
-
-\begin{lstlisting}
-2 4 2 10
-0.1
-1 -70.0 -14.0 0.02 0.2 -65.0 2.0
-1 -69.0 -13.0 0.04 0.1 -60.0 1.0
-30000
-20000
-2 0 15.0 1
-3 1 20.0 1
-1 0 10.0 2
-0 1 40.0 3
-\end{lstlisting}
-
-输出\#2：
-
-\begin{lstlisting}
--60.000 -22.092
-1 2
-\end{lstlisting}
+\examplebox{\lstinputlisting[frame=none]{data/23/3-1.in}}{\lstinputlisting[frame=none]{data/23/3-1.out}}
 
 \subsection*{子任务}
 

@@ -37,73 +37,19 @@ $A_1, A_2, \cdots, A_n$ 是一个由 $n$ 个自然数（非负整数）组成的
 
 仅输出一个整数，表示对数组 $A$ 进行操作后，其非零段个数能达到的最大值。
 
-\subsection*{样例}
-
-输入\#1：
-
-\begin{lstlisting}
-11
-3 1 2 0 0 2 0 4 5 0 2
-\end{lstlisting}
-
-输出\#1：
-
-\begin{lstlisting}
-5
-\end{lstlisting}
-
-解释\#1：
+\examplebox*{\lstinputlisting[frame=none]{data/23/2-1.in}}{\lstinputlisting[frame=none]{data/23/2-1.out}}
 
 $p = 2$ 时，$A = [3, 0, 2, 0, 0, 2, 0, 4, 5, 0, 2]$，$5$ 个非零段依次为 $[3]$、$[2]$、$[2]$、$[4, 5]$ 和 $[2]$；此时非零段个数达到最大。
 
-输入\#2：
-
-\begin{lstlisting}
-14
-5 1 20 10 10 10 10 15 10 20 1 5 10 15
-\end{lstlisting}
-
-输出\#2：
-
-\begin{lstlisting}
-4
-\end{lstlisting}
-
-解释\#2：
+\examplebox*{\lstinputlisting[frame=none]{data/23/2-2.in}}{\lstinputlisting[frame=none]{data/23/2-2.out}}
 
 $p = 12$ 时，$A = [0, 0, 20, 0, 0, 0, 0, 15, 0, 20, 0, 0, 0, 15]$，$4$ 个非零段依次为 $[20]$、$[15]$、$[20]$ 和 $[15]$；此时非零段个数达到最大。
 
-输入\#3：
-
-\begin{lstlisting}
-3
-1 0 0
-\end{lstlisting}
-
-输出\#3：
-
-\begin{lstlisting}
-1
-\end{lstlisting}
-
-解释\#3：
+\examplebox*{\lstinputlisting[frame=none]{data/23/2-3.in}}{\lstinputlisting[frame=none]{data/23/2-3.out}}
 
 $p = 1$ 时，$A = [1, 0, 0]$，此时仅有 $1$ 个非零段 $[1]$，非零段个数达到最大。
 
-输入\#4：
-
-\begin{lstlisting}
-3
-0 0 0
-\end{lstlisting}
-
-输出\#4：
-
-\begin{lstlisting}
-0
-\end{lstlisting}
-
-解释\#4：
+\examplebox*{\lstinputlisting[frame=none]{data/23/2-4.in}}{\lstinputlisting[frame=none]{data/23/2-4.out}}
 
 无论 $p$ 取何值，$A$ 都不含有非零段，故非零段个数至多为 $0$。
 
