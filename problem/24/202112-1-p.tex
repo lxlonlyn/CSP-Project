@@ -13,14 +13,14 @@ $A=[A_0,A_1,A_2,\cdots,A_n]$ 是一个由 $n+1$ 个 $[0,N)$ 范围内整数组�
 基于序列 $A$，对于 $[0,N)$ 范围内任意的整数 $x$，查询 $f(x)$ 定义为：序列 $A$ 中{\heiti 小于等于} $x$ 的整数里最大的数的{\heiti 下标}。具体来说有以下两种情况：
 
 \begin{enumerate}
-  \item 存在下标 $0\le i<n$ 满足 $A_i\le x < A_{i+1}$，此时序列 $A$ 中从 $A_0$ 到 $A_i$ 均小于等于 $x$，其中最大的数为 $A_i$，其下标为 $i$，故 $f(x)=i$。
-  \item $A_n\le x$，此时序列 $A$ 中左右的数都小于等于 $x$，其中最大的数是 $A_n$，故 $f(x)=n$。
+    \item 存在下标 $0\le i<n$ 满足 $A_i\le x < A_{i+1}$，此时序列 $A$ 中从 $A_0$ 到 $A_i$ 均小于等于 $x$，其中最大的数为 $A_i$，其下标为 $i$，故 $f(x)=i$。
+    \item $A_n\le x$，此时序列 $A$ 中左右的数都小于等于 $x$，其中最大的数是 $A_n$，故 $f(x)=n$。
 \end{enumerate}
 
 令 $sum(A)$ 表示 $f(0)$ 到 $f(N-1)$ 的总和，即：
 
 \begin{equation*}
-sum(A) = \sum_{i=0}^{N-1} {f(i)=f(0)+f(1)+f(2)+\cdots +f(N-1)}
+    sum(A) = \sum_{i=0}^{N-1} {f(i)=f(0)+f(1)+f(2)+\cdots +f(N-1)}
 \end{equation*}
 
 对于给定的序列 $A$，试计算 $sum(A)$。
@@ -35,7 +35,7 @@ sum(A) = \sum_{i=0}^{N-1} {f(i)=f(0)+f(1)+f(2)+\cdots +f(N-1)}
 。
 
 注意 $A_0$
- 固定为 $0$，因此输入数据中不包括 $A_0$ 
+固定为 $0$，因此输入数据中不包括 $A_0$
 。
 
 \subsection*{输出格式}
@@ -49,13 +49,13 @@ sum(A) = \sum_{i=0}^{N-1} {f(i)=f(0)+f(1)+f(2)+\cdots +f(N-1)}
 $A=[0, 2, 5, 8]$
 
 \begin{table}[H]
-  \centering
-  \begin{tabular}{ccccccccccc}
-    \toprule
-    $i$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
-    $f(i)$ & $0$ & $0$ & $1$ & $1$ & $1$ & $2$ & $2$ & $2$ & $3$ & $3$ \\
-    \bottomrule
-  \end{tabular}
+    \centering
+    \begin{tabular}{ccccccccccc}
+        \toprule
+        $i$    & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ \\
+        $f(i)$ & $0$ & $0$ & $1$ & $1$ & $1$ & $2$ & $2$ & $2$ & $3$ & $3$ \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 
 如上表所示，$sum(A)=f(0)+f(1)+\cdots + f(9)=15$。
@@ -63,14 +63,14 @@ $A=[0, 2, 5, 8]$
 考虑到 $f(0)=f(1)$、$f(2)=f(3)=f(4)$、$f(5)=f(6)=f(7)$ 以及 $f(8)=f(9)$，亦可通过如下算式计算 $sum(A)$；
 
 \begin{equation*}
-  sum(A)=f(0)\times 2+f(2)\times 3+f(5)\times 3 + f(8)\times 2
+    sum(A)=f(0)\times 2+f(2)\times 3+f(5)\times 3 + f(8)\times 2
 \end{equation*}
 
 \examplebox{\lstinputlisting[frame=none]{data/24/1-2.in}}{\lstinputlisting[frame=none]{data/24/1-2.out}}
 
 \subsection*{子任务}
 
-$50$ \% 的测试数据满足 $1\le n\le 200$ 且 $n\le N\le 1000$；
+$50\%$  的测试数据满足 $1\le n\le 200$ 且 $n\le N\le 1000$；
 
 全部的测试数据满足 $1\le n\le 200$ 且 $n\le N\le 10^7$。
 

@@ -2,7 +2,7 @@
 
 % \input{problem/24/202112-3-p.tex}
 
-\subsection{$40$\% 数据——直接模拟}
+\subsection{\texorpdfstring{$40\%$}{40\%} 数据——直接模拟}
 
 \subsubsection{思路}
 
@@ -10,34 +10,34 @@
 我们按照题目要求进行对应操作即可，大体分为以下几个步骤：
 
 \begin{enumerate}
-    \item 得到数字序列，注意不同模式的切换以及最后的补全。
-    \item 将得到的数字转换为码字。
-    \item 根据有效数据区每行能容纳的码字数 $w$ 及目前码字个数，在末尾补充码字。注意不要忽略长度码字。
-    \item 输出结果。
+  \item 得到数字序列，注意不同模式的切换以及最后的补全。
+  \item 将得到的数字转换为码字。
+  \item 根据有效数据区每行能容纳的码字数 $w$ 及目前码字个数，在末尾补充码字。注意不要忽略长度码字。
+  \item 输出结果。
 \end{enumerate}
 
 \subsubsection{C++实现}
 
 \lstinputlisting[language=c++]{code/24/202112-3-40.cpp}
 
-\subsection{$100$\% 数据——模拟+多项式除法}
+\subsection{\texorpdfstring{$100\%$}{100\%} 数据——模拟+多项式除法}
 
 \subsubsection{思路}
 
 这部分数据要求我们对校验码进行处理，所以步骤变为：
 
 \begin{enumerate}
-    \item 得到数字序列，注意不同模式的切换以及最后的补全。
-    \item 将得到的数字转换为码字。
-    \item 根据有效数据区每行能容纳的码字数 $w$、目前码字个数以及{\heiti{校验码的位数}}，在末尾补充码字。注意不要忽略长度码字。
-    \item 输出数据码部分结果。
-    \item {\heiti{计算得出校验码，并输出。}}
+  \item 得到数字序列，注意不同模式的切换以及最后的补全。
+  \item 将得到的数字转换为码字。
+  \item 根据有效数据区每行能容纳的码字数 $w$、目前码字个数以及{\heiti{校验码的位数}}，在末尾补充码字。注意不要忽略长度码字。
+  \item 输出数据码部分结果。
+  \item {\heiti{计算得出校验码，并输出。}}
 \end{enumerate}
 
 校验码的位数能比较方便得出，关键在于校验码的计算。考虑关键公式：
 
 \begin{equation*}
-    x^kd(x)\equiv q(x)g(x)-r(x)
+  x^kd(x)\equiv q(x)g(x)-r(x)
 \end{equation*}
 
 其中 $d(x)$ 是 $n-1$ 次多项式（已知），$g(x)$ 是 $k$ 次多项式（已知），
@@ -46,31 +46,31 @@
 考虑消去 $q(x)$ 的影响：可以在两端同时对 $g(x)$ 取余，则 $q(x)g(x)$ 项会被直接消去，可以化所求式为：
 
 \begin{equation*}
-    x^kd(x)\equiv -r(x) \mod q(x)
+  x^kd(x)\equiv -r(x) \mod q(x)
 \end{equation*}
 
 所以目前问题转化为求解 $x^kd(x) \mod q(x)$。
 
-\begin{definition}[多项式带余除法] \label{def:polynomial_division} 
-若 $f(x)$ 和 $g(x)$ 是两个多项式，且 $g(x)$ 不等于 $0$，
-则存在唯一的多项式 $q(x)$ 和 $r(x)$，满足：
+\begin{definition}[多项式带余除法] \label{def:polynomial_division}
+  若 $f(x)$ 和 $g(x)$ 是两个多项式，且 $g(x)$ 不等于 $0$，
+  则存在唯一的多项式 $q(x)$ 和 $r(x)$，满足：
 
-\begin{equation*}
+  \begin{equation*}
     f(x)=q(x)g(x)+r(x)
-\end{equation*}
+  \end{equation*}
 
-其中 $r(x)$ 的次数小于 $g(x)$ 的次数。此时 $q(x)$ 称为 $g(x)$ 除 $f(x)$ 的商式，$r(x)$ 称为余式。
+  其中 $r(x)$ 的次数小于 $g(x)$ 的次数。此时 $q(x)$ 称为 $g(x)$ 除 $f(x)$ 的商式，$r(x)$ 称为余式。
 \end{definition}
 
-\begin{definition}[多项式长除法] \label{def:polynomial_division_method} 
-求解多项式带余除法的一种方法，步骤如下：
+\begin{definition}[多项式长除法] \label{def:polynomial_division_method}
+  求解多项式带余除法的一种方法，步骤如下：
 
-\begin{enumerate}
+  \begin{enumerate}
     \item 把被除式、除式按某个字母作降幂排列，并把所缺的项用零补齐；
     \item 用被除式的第一项除以除式第一项，得到商式的第一项；
     \item 用商式的第一项去乘除式，把积写在被除式下面（同类项对齐），消去相等项，把不相等的项结合起来；
     \item 把减得的差当作新的被除式，再按照上面的方法继续演算，直到余式为零或余式的次数低于除式的次数时为止。
-\end{enumerate}
+  \end{enumerate}
 
 \end{definition}
 
@@ -81,10 +81,10 @@
 得到求解多项式带余除法的步骤后，考虑求解 $r(x)$ 的步骤：
 
 \begin{enumerate}
-    \item 计算 $g(x)=(x-3)(x-3^2)\cdots(x-3^k)$；
-    \item 计算 $x^kd(x)$；
-    \item 计算 $x^kd(x) \mod g(x)$，得到 $-r(x)$；
-    \item 对得到的每一项取反即可得到 $r(x)$。
+  \item 计算 $g(x)=(x-3)(x-3^2)\cdots(x-3^k)$；
+  \item 计算 $x^kd(x)$；
+  \item 计算 $x^kd(x) \mod g(x)$，得到 $-r(x)$；
+  \item 对得到的每一项取反即可得到 $r(x)$。
 \end{enumerate}
 
 计算 $g(x)$：考虑到每一次多项式乘以的因子都是 $(x-a)$ 的格式，
