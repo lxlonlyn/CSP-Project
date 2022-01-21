@@ -1,0 +1,13 @@
+dhcp a OFR 1 6
+dhcp a ACK 1 7
+dhcp b OFR 2 9
+dhcp b ACK 2 12
+dhcp c OFR 3 12
+dhcp c ACK 3 13
+dhcp d OFR 4 14
+dhcp d ACK 4 20
+dhcp a ACK 1 20
+dhcp c ACK 3 20
+dhcp e OFR 2 18
+dhcp e ACK 2 19
+dhcp b NAK 2 0

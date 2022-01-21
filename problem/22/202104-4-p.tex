@@ -59,9 +59,9 @@ X 校希望，在一定范围内，树应该是等间隔的。更具体地说，
 
 \begin{enumerate}
 
-\item 如果 $T\ne \emptyset$，$T\cap \left\{a_l, a_{l+1}, \cdots, a_r\right\}=\emptyset$，并且存在一个公差 $d\ge 1$，使得 $T\cup\left\{a_l, a_r\right\}$ 中的元素按照从小到大的顺序排序后，可以构成一个公差为 $d$ 的等差数列（显然，这个等差数列的首项为 $a_l$，末项为 $a_r$），则 $T$ 在 $\left[a_l, a_r\right)$ 上是美观的；
+    \item 如果 $T\ne \emptyset$，$T\cap \left\{a_l, a_{l+1}, \cdots, a_r\right\}=\emptyset$，并且存在一个公差 $d\ge 1$，使得 $T\cup\left\{a_l, a_r\right\}$ 中的元素按照从小到大的顺序排序后，可以构成一个公差为 $d$ 的等差数列（显然，这个等差数列的首项为 $a_l$，末项为 $a_r$），则 $T$ 在 $\left[a_l, a_r\right)$ 上是美观的；
 
-\item 如果 $T\cap \left\{a_l, a_{l+1}, \cdots, a_r\right\}=\emptyset$，并且存在一个下标 $m$（$l<m<r$），使得 $T\cap\left(a_l, a_m\right)$ 在 $\left[a_l, a_m\right)$ 上是美观的，且 $T\cap\left(a_m, a_r\right)$ 在 $\left[a_m, a_r\right)$ 上是美观的，则 $T$ 在 $\left[a_l, a_r\right)$ 上是美观的。
+    \item 如果 $T\cap \left\{a_l, a_{l+1}, \cdots, a_r\right\}=\emptyset$，并且存在一个下标 $m$（$l<m<r$），使得 $T\cap\left(a_l, a_m\right)$ 在 $\left[a_l, a_m\right)$ 上是美观的，且 $T\cap\left(a_m, a_r\right)$ 在 $\left[a_m, a_r\right)$ 上是美观的，则 $T$ 在 $\left[a_l, a_r\right)$ 上是美观的。
 
 \end{enumerate}
 
@@ -83,4 +83,20 @@ X 校希望，在一定范围内，树应该是等间隔的。更具体地说，
 
 输出一个非负整数，表示本质不同的美观的种树方案的数量对 $10^9+7$ 取模的结果。
 
+\examplebox*{\lstinputlisting[frame=none]{data/22/4-1.in}}{\lstinputlisting[frame=none]{data/22/4-1.out}}
 
+这组样例即为题面描述中提到的那组。
+
+\examplebox{\lstinputlisting[frame=none]{data/22/4-2.in}}{\lstinputlisting[frame=none]{data/22/4-2.out}}
+
+\examplebox{见 \href{data/22/4-3.in}{data/22/4-3.in}}{见 \href{data/22/4-3.out}{data/22/4-3.out}}
+
+\subsection*{子任务}
+
+对于 $10\%$ 的数据，保证 $n=2$；
+
+对于 $30\%$ 的数据，保证 $n\le 10$；
+
+对于 $60\%$ 的数据，保证 $n\le 100,a_i\le 1000$；
+
+对于 $1000\%$ 的数据，保证 $2\le n\le 1000,0\le a_i\le 10^5$，且至少存在一种美观的种树方案。

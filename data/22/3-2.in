@@ -1,0 +1,8 @@
+4 70 100 50 dhcp
+6
+5 a * OFR 2 100
+10 b * DIS 0 70
+15 b dhcp2 REQ 4 60
+20 c * DIS 0 70
+70 d * DIS 0 120
+75 d dhcp REQ 1 125

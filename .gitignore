@@ -1,13 +1,18 @@
-**/__pycache__
-**/tempCodeRunnerFile.py
-**/gitpush.py
-**/gitpull.py
+# latex 辅助文件
 **/__latexindent_temp.tex
 **/__latexindent_temp.pdf
-**/.clang-format
 **/*.aux
 **/*.bcf
 **/*.xml
 **/*.gz
+
+# 一键 git push/pull
+**/gitpush.py
+**/gitpull.py
+
+# 辅助文件
+**/__pycache__
+**/tempCodeRunnerFile.py
 **/.vscode
 **/gethtml
+**/.clang-format

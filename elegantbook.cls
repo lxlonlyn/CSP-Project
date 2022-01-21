@@ -1171,3 +1171,10 @@
         \end{tcolorbox}
     }
 }
+
+% \thickhline 比较粗的表格线
+% Create by lonlyn 2022.1.21
+\newcommand{\thickhline}{%
+    \noalign {\ifnum 0=`}\fi \hrule height 1pt
+    \futurelet \reserved@a \@xhline
+}

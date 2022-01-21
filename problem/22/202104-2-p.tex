@@ -9,7 +9,7 @@
 对于矩阵中任意一个元素 $A_{ij}$（$0 \le i, j < n$），其{\heiti{邻域}}定义为附近若干元素的集和：
 
 \begin{equation*}
- Neighbor(i, j, r) = \left\{ A_{xy} | 0 \le x, y < n \mathrm{~and~} |x-i| \le r \mathrm{~and~} |y-j| \le r \right\} 
+    Neighbor(i, j, r) = \left\{ A_{xy} | 0 \le x, y < n \mathrm{~and~} |x-i| \le r \mathrm{~and~} |y-j| \le r \right\}
 \end{equation*}
 
 
@@ -42,46 +42,9 @@
 
 输出一个整数，表示输入灰度图像中处于较暗区域的像素总数。
 
-\subsection*{样例}
+\examplebox{\lstinputlisting[frame=none]{data/22/2-1.in}}{\lstinputlisting[frame=none]{data/22/2-1.out}}
 
-输入\#1：
-
-\begin{lstlisting}
-4 16 1 6
-0 1 2 3
-4 5 6 7
-8 9 10 11
-12 13 14 15
-\end{lstlisting}
-
-输出\#1：
-
-\begin{lstlisting}
-7
-\end{lstlisting}
-
-输入\#2：
-
-\begin{lstlisting}
-11 8 2 2
-0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0
-0 7 0 0 0 7 0 0 7 7 0
-7 0 7 0 7 0 7 0 7 0 7
-7 0 0 0 7 0 0 0 7 0 7
-7 0 0 0 0 7 0 0 7 7 0
-7 0 0 0 0 0 7 0 7 0 0
-7 0 7 0 7 0 7 0 7 0 0
-0 7 0 0 0 7 0 0 7 0 0
-0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0
-\end{lstlisting}
-
-输出\#2：
-
-\begin{lstlisting}
-83
-\end{lstlisting}
+\examplebox{\lstinputlisting[frame=none]{data/22/2-2.in}}{\lstinputlisting[frame=none]{data/22/2-2.out}}
 
 \subsection*{子任务}
 

@@ -1,0 +1,18 @@
+4 5 10 5 dhcp
+16
+1 a * DIS 0 0
+2 a dhcp REQ 1 0
+3 b a DIS 0 0
+4 b * DIS 3 0
+5 b * REQ 2 12
+6 b dhcp REQ 2 12
+7 c * DIS 0 11
+8 c dhcp REQ 3 11
+9 d * DIS 0 0
+10 d dhcp REQ 4 20
+11 a dhcp REQ 1 20
+12 c dhcp REQ 3 20
+13 e * DIS 0 0
+14 e dhcp REQ 2 0
+15 b dhcp REQ 2 25
+16 b * DIS 0 0
