@@ -12,10 +12,6 @@
 
 枚举 $x$ 时间复杂度 $\mathbf{O}(N)$，计算 $f(x)$ 时间复杂度 $\mathbf{O}(n)$，整体时间复杂度 $\mathbf{O}(nN)$。
 
-\subsubsection{C++实现}
-
-待补充。
-
 \subsection{\texorpdfstring{$100\%$}{100\%} 数据——利用 \texorpdfstring{$f(x)$}{f(x)} 单调性}
 
 \subsubsection{思路}
@@ -25,7 +21,7 @@
 通过模拟，可以得到一个显然的结论：
 
 \begin{theorem}[$f(x)$的单调性] \label{thm:fx_monotonicity}
-  对于 $x,y\in [0,N)$，若 $x \le y$，则 $f(x) \le f(y)$。
+    对于 $x,y\in [0,N)$，若 $x \le y$，则 $f(x) \le f(y)$。
 \end{theorem}
 
 那么，我们可以从小到大枚举 $x$，同时记录目前 $f(x)$ 的值，设为 $y$，那么 $A_{y+1}$ 是第一个大于 $x$ 的数。
